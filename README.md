@@ -107,8 +107,8 @@ http://<YOUR_NODE_IP>:30080
 
 K8Flow is distributed under a dual-tier model:
 
-- **Community Edition (Free / Unrestricted)**: Core web management, visual editors, basic quotas, and multi-language interface.
-- **Business Edition**: Unlimited namespaces, enterprise RBAC audit trails, priority FlowBot AI integrations, dedicated support, and custom branding.
+- **Community Edition (Free)**: Core visual management, FlowBot AI diagnostics, visual editors, storage/network management, limited up to **5 Namespaces / Projects**, **10 RBAC Users**, and **50 Workload Pods**.
+- **Business Edition**: **Unlimited namespaces, unlimited users, and unlimited pods**, enterprise RBAC audit trails, priority FlowBot AI integrations, dedicated support, and custom branding.
 
 For enterprise inquiries and license keys, visit [github.com/hemaguza/k8flow](https://github.com/hemaguza/k8flow).
 
@@ -118,3 +118,4 @@ For enterprise inquiries and license keys, visit [github.com/hemaguza/k8flow](ht
 
 Copyright © 2026 [hemaguza](https://github.com/hemaguza). All rights reserved.
 Distributed for cloud-native infrastructure automation.
+
