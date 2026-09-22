@@ -105,17 +105,47 @@ http://<YOUR_NODE_IP>:30080
 
 ---
 
-## 💎 Editions & Licensing
+## 💎 Editions & Pricing
 
-K8Flow is distributed by **Neihec** under a dual-tier model:
+K8Flow is distributed by **Neihec** under an accessible dual-tier pricing model tailored for independent developers and enterprise organizations:
 
-- **Community Edition (Free)**: Core visual management, FlowBot AI diagnostics, visual editors, storage/network management, limited up to **5 Namespaces / Projects**, **10 RBAC Users**, and **50 Workload Pods**.
-- **Business Edition**: **Unlimited namespaces, unlimited users, and unlimited pods**, enterprise RBAC audit trails, priority FlowBot AI integrations, dedicated support, and custom branding.
+### 🟢 1. Community Edition (Free Forever)
+- Visual workload scaling and multi-project dashboards.
+- Integrated FlowBot AI diagnostics and YAML patch generator.
+- Persistent volume (PVC) and Ingress SSL certificate management.
+- **Resource Limits:** Up to **5 Namespaces / Projects**, **10 RBAC Users**, and **50 Workload Pods**.
 
-### 📩 Commercial Inquiries & License Activation
-To purchase a Business license, request an enterprise trial, or obtain technical support:
-- 📧 **Support & Sales Email:** [soporte@neihec.com](mailto:soporte@neihec.com)
-- 🌐 **Project Portal:** [github.com/hemaguza/k8flow](https://github.com/hemaguza/k8flow)
+---
+
+### 🚀 2. Individual / Indie Pro (For solo developers, freelancers & small projects)
+*For individual developers or projects generating under $100k USD annual revenue.*
+
+| Period | Price | Effective Monthly | Benefits |
+| :--- | :--- | :--- | :--- |
+| **1 Month** | **$9 USD** | $9.00 / mo | Unlimited namespaces, users & pods + FlowBot AI. |
+| **3 Months** | **$25 USD** | $8.33 / mo | Unrestricted Kubernetes cluster management. |
+| **6 Months** | **$69 USD** | $11.50 / mo | Semi-annual signed license key. |
+| **🌟 1 Year (Best Value)** | **$79 USD** | **$6.58 / mo** | 🔥 **12 Full Months (Only $10 more than 6 months!)** |
+
+---
+
+### 🏢 3. Commercial / Enterprise (For companies, startups & engineering teams)
+*For incorporated businesses, agencies, and production infrastructure teams.*
+
+| Period | Price | Effective Monthly | Enterprise Inclusions |
+| :--- | :--- | :--- | :--- |
+| **1 Month** | **$29 USD** | $29.00 / mo | Commercial license for 1 production cluster. |
+| **3 Months** | **$79 USD** | $26.33 / mo | Multi-team access + priority email support. |
+| **6 Months** | **$269 USD** | $44.83 / mo | Semi-annual commercial compliance & updates. |
+| **🌟 1 Year (Best Value)** | **$299 USD** | **$24.91 / mo** | 🔥 **Full Year Enterprise (Only $30 more than 6 months!)** + Invoicing & Priority SLA. |
+
+---
+
+### 📩 License Orders & Enterprise Inquiries
+- 💖 **Instant Sponsorship & License Activation:** [GitHub Sponsors @hemaguza](https://github.com/sponsors/hemaguza)
+- 💳 **Direct PayPal Checkout:** [PayPal Donate / Order](https://www.paypal.com/donate/?hosted_button_id=4S4KNWJPNR6YL)
+- 📧 **Enterprise Invoicing & Quotes:** [soporte@neihec.com](mailto:soporte@neihec.com)
+
 
 ---
 
