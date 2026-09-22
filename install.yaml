@@ -1,0 +1,492 @@
+---
+# ==============================================================================
+# K8Flow Platform - Production Manifest
+# https://github.com/hemaguza/k8flow
+# ==============================================================================
+
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.15.0
+  name: k8flowapps.k8flow.io
+spec:
+  group: k8flow.io
+  names:
+    kind: K8FlowApp
+    listKind: K8FlowAppList
+    plural: k8flowapps
+    singular: k8flowapp
+  scope: Namespaced
+  versions:
+  - additionalPrinterColumns:
+    - jsonPath: .status.phase
+      name: Estado
+      type: string
+    - jsonPath: .status.replicas
+      name: Replicas
+      type: string
+    - jsonPath: .metadata.creationTimestamp
+      name: Edad
+      type: date
+    name: v1
+    schema:
+      openAPIV3Schema:
+        description: K8FlowApp is the Schema for the k8flowapps API
+        properties:
+          apiVersion:
+            type: string
+          kind:
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: K8FlowAppSpec defines the desired state of K8FlowApp
+            properties:
+              imagen:
+                type: string
+              replicas:
+                format: int32
+                minimum: 0
+                type: integer
+              puerto:
+                format: int32
+                maximum: 65535
+                minimum: 1
+                type: integer
+              comando:
+                items:
+                  type: string
+                type: array
+              argumentos:
+                items:
+                  type: string
+                type: array
+              configMapsRefs:
+                items:
+                  type: string
+                type: array
+              secretsRefs:
+                items:
+                  type: string
+                type: array
+              politicaReinicio:
+                enum:
+                - Always
+                - OnFailure
+                - Never
+                type: string
+              estrategia:
+                enum:
+                - RollingUpdate
+                - Recreate
+                type: string
+              variables:
+                items:
+                  properties:
+                    nombre:
+                      type: string
+                    valor:
+                      type: string
+                    secretRef:
+                      properties:
+                        nombre:
+                          type: string
+                        clave:
+                          type: string
+                      required:
+                      - clave
+                      - nombre
+                      type: object
+                    configMapRef:
+                      properties:
+                        nombre:
+                          type: string
+                        clave:
+                          type: string
+                      required:
+                      - clave
+                      - nombre
+                      type: object
+                  required:
+                  - nombre
+                  type: object
+                type: array
+              recursos:
+                properties:
+                  cpuRequest:
+                    type: string
+                  cpuLimit:
+                    type: string
+                  memoriaRequest:
+                    type: string
+                  memoriaLimit:
+                    type: string
+                type: object
+              liveness:
+                properties:
+                  path:
+                    type: string
+                  puerto:
+                    format: int32
+                    type: integer
+                  periodoInicialSeg:
+                    format: int32
+                    type: integer
+                  periodoSeg:
+                    format: int32
+                    type: integer
+                  timeoutSeg:
+                    format: int32
+                    type: integer
+                  fallosPermitidos:
+                    format: int32
+                    type: integer
+                type: object
+              readiness:
+                properties:
+                  path:
+                    type: string
+                  puerto:
+                    format: int32
+                    type: integer
+                  periodoInicialSeg:
+                    format: int32
+                    type: integer
+                  periodoSeg:
+                    format: int32
+                    type: integer
+                  timeoutSeg:
+                    format: int32
+                    type: integer
+                  fallosPermitidos:
+                    format: int32
+                    type: integer
+                type: object
+              exposicion:
+                properties:
+                  tipo:
+                    enum:
+                    - ClusterIP
+                    - NodePort
+                    - LoadBalancer
+                    type: string
+                  puerto:
+                    format: int32
+                    type: integer
+                  host:
+                    type: string
+                  path:
+                    type: string
+                  tlsSecret:
+                    type: string
+                type: object
+              autoscaling:
+                properties:
+                  minReplicas:
+                    format: int32
+                    minimum: 1
+                    type: integer
+                  maxReplicas:
+                    format: int32
+                    minimum: 1
+                    type: integer
+                  targetCPU:
+                    format: int32
+                    maximum: 100
+                    minimum: 1
+                    type: integer
+                  targetMemoria:
+                    format: int32
+                    maximum: 100
+                    minimum: 1
+                    type: integer
+                required:
+                - maxReplicas
+                - minReplicas
+                type: object
+              volumenes:
+                items:
+                  properties:
+                    nombre:
+                      type: string
+                    montaje:
+                      type: string
+                    tamano:
+                      type: string
+                    storageClass:
+                      type: string
+                  required:
+                  - montaje
+                  - nombre
+                  - tamano
+                  type: object
+                type: array
+              sidecars:
+                items:
+                  properties:
+                    nombre:
+                      type: string
+                    imagen:
+                      type: string
+                    puerto:
+                      format: int32
+                      type: integer
+                  required:
+                  - imagen
+                  - nombre
+                  type: object
+                type: array
+            required:
+            - imagen
+            - puerto
+            type: object
+          status:
+            description: K8FlowAppStatus defines the observed state of K8FlowApp
+            properties:
+              phase:
+                type: string
+              replicas:
+                type: string
+              replicasListas:
+                format: int32
+                type: integer
+              replicasDeseadas:
+                format: int32
+                type: integer
+              revisionActual:
+                format: int32
+                type: integer
+              url:
+                type: string
+              mensaje:
+                type: string
+              ultimaReconciliacion:
+                format: date-time
+                type: string
+              condiciones:
+                items:
+                  properties:
+                    lastTransitionTime:
+                      format: date-time
+                      type: string
+                    message:
+                      type: string
+                    reason:
+                      type: string
+                    status:
+                      type: string
+                    type:
+                      type: string
+                  required:
+                  - lastTransitionTime
+                  - message
+                  - reason
+                  - status
+                  - type
+                  type: object
+                type: array
+              recursosCreados:
+                properties:
+                  deployment:
+                    type: string
+                  service:
+                    type: string
+                  ingress:
+                    type: string
+                  configMap:
+                    type: string
+                  secret:
+                    type: string
+                  hpa:
+                    type: string
+                  pvcs:
+                    items:
+                      type: string
+                    type: array
+                type: object
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: k8flow-system
+  labels:
+    app.kubernetes.io/name: k8flow
+    app.kubernetes.io/part-of: k8flow-platform
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: k8flow-admin-sa
+  namespace: k8flow-system
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: k8flow-admin-role
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: k8flow-admin-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: k8flow-admin-role
+subjects:
+  - kind: ServiceAccount
+    name: k8flow-admin-sa
+    namespace: k8flow-system
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8flow-operator
+  namespace: k8flow-system
+  labels:
+    app: k8flow-operator
+    app.kubernetes.io/name: k8flow-operator
+    app.kubernetes.io/part-of: k8flow-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8flow-operator
+  template:
+    metadata:
+      labels:
+        app: k8flow-operator
+    spec:
+      serviceAccountName: k8flow-admin-sa
+      containers:
+        - name: manager
+          image: ghcr.io/hemaguza/k8flow-operator:v1.0.5
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8flow-api
+  namespace: k8flow-system
+  labels:
+    app: k8flow-api
+    app.kubernetes.io/name: k8flow-api
+    app.kubernetes.io/part-of: k8flow-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8flow-api
+  template:
+    metadata:
+      labels:
+        app: k8flow-api
+    spec:
+      serviceAccountName: k8flow-admin-sa
+      containers:
+        - name: api
+          image: ghcr.io/hemaguza/k8flow-api:v1.0.5
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8flow-api
+  namespace: k8flow-system
+  labels:
+    app: k8flow-api
+spec:
+  type: ClusterIP
+  selector:
+    app: k8flow-api
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8flow-console
+  namespace: k8flow-system
+  labels:
+    app: k8flow-console
+    app.kubernetes.io/name: k8flow-console
+    app.kubernetes.io/part-of: k8flow-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8flow-console
+  template:
+    metadata:
+      labels:
+        app: k8flow-console
+    spec:
+      containers:
+        - name: console
+          image: ghcr.io/hemaguza/k8flow-console:v1.0.5
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              cpu: 30m
+              memory: 32Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8flow-console
+  namespace: k8flow-system
+  labels:
+    app: k8flow-console
+spec:
+  type: NodePort
+  selector:
+    app: k8flow-console
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 30080
