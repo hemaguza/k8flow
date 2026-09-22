@@ -125,7 +125,7 @@ If K8Flow helps you manage your Kubernetes infrastructure or saves your team tim
 
 <div align="center">
 
-[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com)
+[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=4S4KNWJPNR6YL)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub_Sponsors-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/hemaguza)
 
 <p>Your support directly funds cloud infrastructure testing, new integrations, and FlowBot AI enhancements.</p>
