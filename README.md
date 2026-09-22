@@ -124,8 +124,8 @@ K8Flow is distributed by **Neihec** under an accessible dual-tier pricing model 
 | :--- | :--- | :--- | :--- |
 | **1 Month** | **$9 USD** | $9.00 / mo | Unlimited namespaces, users & pods + FlowBot AI. |
 | **3 Months** | **$25 USD** | $8.33 / mo | Unrestricted Kubernetes cluster management. |
-| **6 Months** | **$69 USD** | $11.50 / mo | Semi-annual signed license key. |
-| **🌟 1 Year (Best Value)** | **$79 USD** | **$6.58 / mo** | 🔥 **12 Full Months (Only $10 more than 6 months!)** |
+| **6 Months** | **$59 USD** | $9.83 / mo | Semi-annual signed license key. |
+| **🌟 1 Year (Best Value)** | **$69 USD** | **$5.75 / mo** | 🔥 **12 Full Months (Only $10 more than 6 months!)** |
 
 ---
 
@@ -135,9 +135,9 @@ K8Flow is distributed by **Neihec** under an accessible dual-tier pricing model 
 | Period | Price | Effective Monthly | Enterprise Inclusions |
 | :--- | :--- | :--- | :--- |
 | **1 Month** | **$29 USD** | $29.00 / mo | Commercial license for 1 production cluster. |
-| **3 Months** | **$79 USD** | $26.33 / mo | Multi-team access + priority email support. |
-| **6 Months** | **$269 USD** | $44.83 / mo | Semi-annual commercial compliance & updates. |
-| **🌟 1 Year (Best Value)** | **$299 USD** | **$24.91 / mo** | 🔥 **Full Year Enterprise (Only $30 more than 6 months!)** + Invoicing & Priority SLA. |
+| **3 Months** | **$85 USD** | $28.33 / mo | Multi-team access + priority email support. |
+| **6 Months** | **$249 USD** | $41.50 / mo | Semi-annual commercial compliance & updates. |
+| **🌟 1 Year (Best Value)** | **$299 USD** | **$24.91 / mo** | 🔥 **Full Year Enterprise (Only $50 more than 6 months!)** + Invoicing & Priority SLA. |
 
 ---
 
